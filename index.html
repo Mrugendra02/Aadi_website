@@ -35,12 +35,12 @@
         mesh1.position.y=2;
         mesh1.scale.set(0.5,0.5,0.5)
 
-        mesh2.visible=false
+        // mesh2.visible=false
 
         mesh3.position.y=-2
         mesh3.scale.set(0.5,0.5,0.5)
 
-        const objectsDistance=2
+        const objectsDistance=4
 
         mesh1.position.y = - objectsDistance * 0
         mesh2.position.y = - objectsDistance * 1
@@ -54,6 +54,8 @@
         camera.position.z = 6;
         scene.add(camera);
 
+        let scrollY=window.scrollY;
+
         window.addEventListener('resize', () => {
             sizes.width = window.innerWidth;
             sizes.heiht = window.innerHeight;
@@ -65,8 +67,11 @@
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         });
 
+        window.addEventListener('scroll',()=>{
+            scrollY=window.scrollY
+            // console.log(scrollY)
+        })
 
-        
         const light = new THREE.DirectionalLight('#ffffff', 1)
         light.position.set(1, 1, 0)
         scene.add(light)
@@ -80,16 +85,19 @@
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // const clock=new THREE.Clock();
+        const clock=new THREE.Clock();
 
-        const tick = () => {
-            // const elapsedTime= clock.getElapsedTime()
+        const animate = () => {
+            const elapsedTime= clock.getElapsedTime()
 
             renderer.render(scene, camera)
-            window.requestAnimationFrame(tick)
+            camera.position.y=-scrollY/sizes.height*objectsDistance;
+            mesh1.rotation.y=elapsedTime*0.5
+            mesh1.rotation.x=-scrollY/sizes.height
+            window.requestAnimationFrame(animate)
         };
 
-        tick();
+        animate();
     </script>
     <canvas class="webgl">
         Here goes canvas
