@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid{
+    /* background-color: bisque; */
+    width: 100%;
+    height: 50%;
+}
+
+
+.navbar-brand1 {
+    position: relative;
+    top: 46px;
+    left: 60px;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    line-height: 0.5;
+
+
+}
+
+.navbar-brand1:hover {
+    color: white;
+}
+.navbar-brand2 {
+    position: relative;
+    top: 46px;
+    left: 70px;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    line-height: 0.5;
+
+
+}
+
+.navbar-brand3:hover {
+    color: white;
+}.navbar-brand3 {
+    position: relative;
+    top: 46px;
+    left: 84px;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    line-height: 0.5;
+
+
+}
+
+.navbar-brand3:hover {
+    color: white;
+}
+.navbar-brand4 {
+    position: relative;
+    top: 46px;
+    left: 100px;
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    line-height: 0.5;
+
+
+}
+
+.navbar-brand4:hover {
+    color: white;
+}
+.navbar-brand-right{
+    position: relative;
+    top: 46px;
+    left: 1106px;
+    right: 0px;
+    color: white;
+    text-decoration: none;
+    border: 10px solid  rgb(255, 103, 230);
+    border-radius: 50px;
+
+    
+}
+#bg-text{
+    color: white;
+    background-color:  rgb(255, 103, 230);
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {background-color: #521919;}
+
+.navbar-brand1:hover .dropdown-content {display: block;}
+
+.navbar-brand1:hover .navbar-brand1 {background-color: #3e8e41;}
