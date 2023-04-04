@@ -251,22 +251,6 @@ p {
 
 
 
-/* #h2{
-  text-transform: uppercase;
-  font-size: 15px;
-  font-family: 'Ubuntu', sans-serif;
-  position: relative;
-  top: 189px;
-  left: 0px;
-  right: 0px;
-  box-shadow: #191d2b;
-  border: 3px solid rgb(255, 103, 230);
-  background-color: rgb(255, 103, 230);
-  text-align: center;
-} */
-
-
-
 #box-1 {
   display: flex;
   align-items: center;
