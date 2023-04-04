@@ -221,6 +221,7 @@ p {
   /* background: #1D1F20; */
   position: relative;
   border-radius: var(--borderWidth);
+  font-size: ce;
 }
 .gradient-border:after {
   content: '';
