@@ -267,8 +267,8 @@ p {
 }
 .gradient-border-1 {
   --borderWidth: 3px;
-  /* background: #1D1F20; */
-  /* background-color: rgb(255, 103, 230); */
+  background: #1D1F20; 
+  background-color: rgb(255, 103, 230);
   position: relative;
   border-radius: var(--borderWidth);
 }
