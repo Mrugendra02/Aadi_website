@@ -13,43 +13,49 @@ const objectsDistance = 4
 var butterfly;
 var loader = new GLTFLoader();
 let mixer;
-loader.load('./butterfly.gltf', function (gltf) {
+// loader.load('./butterfly.gltf', function (gltf) {
 
-    butterfly = gltf.scene;
-    butterfly.position.z = -2;
-    // car.position.y=-5;
-    butterfly.rotation.y = -3.14 * 0.3;
-    mixer = new THREE.AnimationMixer(butterfly);
-    // gltf.animations.forEach((clip) => {
-    //                 mixer.clipAction(clip).play();
-    //                 console.log("thisis played");
-    //             });
-    scene.add(butterfly);
-    // gltf.animations.forEach((clip) => {
-    //     mixer.clipAction(clip).play();
-    //     console.log(clip.name);
-    //     // console.log("thisis played");
-    // });
+//     butterfly = gltf.scene;
+//     // butterfly.position.z = -2;
+//     // car.position.y=-5;
+//     butterfly.rotation.y = -3.14 * 0.3;
+//     mixer = new THREE.AnimationMixer(butterfly);
+//     // gltf.animations.forEach((clip) => {
+//     //                 mixer.clipAction(clip).play();
+//     //                 console.log("thisis played");
+//     //             });
+//     scene.add(butterfly);
+//     // gltf.animations.forEach((clip) => {
+//     //     mixer.clipAction(clip).play();
+//     //     console.log(clip.name);
+//     //     // console.log("thisis played");
+//     // });
 
-    mixer.clipAction(gltf.animations[0]).play();
-    const tick = () => {
-        butterfly.rotation.y = -scrollY / sizes.height * objectsDistance
-        butterfly.position.y = -scrollY / sizes.height * objectsDistance - 0.5
-        window.requestAnimationFrame(tick)
+//     mixer.clipAction(gltf.animations[0]).play();
+//     const tick = () => {
+//         butterfly.rotation.y = -scrollY / sizes.height * objectsDistance
+//         butterfly.position.y = -scrollY / sizes.height * objectsDistance - 0.5
+//         window.requestAnimationFrame(tick)
 
-    }
-    tick()
+//     }
+//     tick()
 
-}
-    , undefined, function (error) {
-        console.log(error);
-    }
-)
+// }
+//     , undefined, function (error) {
+//         console.log(error);
+//     }
+// )
 // loadGLTF(butterfly);
 
 var eva;
 let mixer1;
+loader.load('./Eva.gltf',(gltf)=>{
+    eva=gltf.scene;
+    eva.scale.set(10,10,10)
+    // eva.position.z=-3
+    scene.add(gltf.scene)
 
+})
 
 
 
@@ -81,8 +87,16 @@ window.addEventListener('scroll', () => {
 })
 
 const light = new THREE.DirectionalLight('#ffffff', 1)
-light.position.set(1, 1, 0)
+light.position.set(0, 0, 0)
 scene.add(light)
+
+const light1=new THREE.DirectionalLight('#ffffff',10)
+light.position.set(0,-1,0)
+scene.add(light1)
+
+const light2=new THREE.DirectionalLight('#ffffff',5)
+light.position.set(1,0,0)
+scene.add(light2);
 
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
