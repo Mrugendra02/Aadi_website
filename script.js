@@ -6,30 +6,14 @@ const scene = new THREE.Scene();
 
 const material = new THREE.MeshToonMaterial({ color: '#ffeded' })
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-//   const mesh1 = new THREE.Mesh(
-//       new THREE.TorusGeometry(1, 0.4, 16, 60),
-//       material)
-//   const mesh2 = new THREE.Mesh(
-//       new THREE.ConeGeometry(1, 2, 32),
-//       material
-//   )
-//   const mesh3 = new THREE.Mesh(
-//       new THREE.TorusKnotGeometry(0.8, 0.35, 100, 16),
-//       material)
-
-
-
-
-// mesh2.visible=false
-
-
 
 const objectsDistance = 4
 
+//object butterfly is loaded
 var butterfly;
 var loader = new GLTFLoader();
 let mixer;
-loader.load('./scene.gltf', function (gltf) {
+loader.load('./butterfly.gltf', function (gltf) {
 
     butterfly = gltf.scene;
     butterfly.position.z = -2;
@@ -61,7 +45,14 @@ loader.load('./scene.gltf', function (gltf) {
         console.log(error);
     }
 )
-// loadGLTF(car);
+// loadGLTF(butterfly);
+
+var eva;
+let mixer1;
+
+
+
+
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
