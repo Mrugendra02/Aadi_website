@@ -6,7 +6,7 @@ const scene = new THREE.Scene();
 
 const material = new THREE.MeshToonMaterial({ color: '#ffeded' })
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-
+const clock = new THREE.Clock();
 const objectsDistance = 4
 
 //object butterfly is loaded
@@ -51,8 +51,30 @@ var eva;
 let mixer1;
 loader.load('./Eva.gltf',(gltf)=>{
     eva=gltf.scene;
-    eva.scale.set(10,10,10)
+    eva.scale.set(20,20,20)
     // eva.position.z=-3
+    mixer1=new THREE.AnimationMixer(eva);
+   
+    gltf.animations.forEach((clip)=>{
+        var action=mixer1.clipAction(clip);
+        // action.setDuration(action.getClip().duration/2);
+        action.play();
+        console.log(clip.name)
+    })
+    // gltf.scene.children.forEach((child)=>{
+    //     child.castShadow=false;
+    //     child.receiveShadow=false;
+    //     // console.log(child)
+    // })
+    function tic(){
+        var elapsedTime=clock.getElapsedTime();
+        var delta=clock.getDelta();
+        eva.position.y=Math.sin(elapsedTime)*0.1;
+        window.requestAnimationFrame(tic)
+    }
+    tic()
+    
+    // mixer1.clipAction(gltf.animations[0]).play(); 
     scene.add(gltf.scene)
 
 })
@@ -86,39 +108,58 @@ window.addEventListener('scroll', () => {
     // console.log(scrollY)
 })
 
-const light = new THREE.DirectionalLight('#ffffff', 1)
-light.position.set(0, 0, 0)
-scene.add(light)
+// const light = new THREE.DirectionalLight('#ffffff', 3)
+// light.position.set(0, 1, 0)
+// scene.add(light)
 
-const light1=new THREE.DirectionalLight('#ffffff',10)
-light.position.set(0,-1,0)
-scene.add(light1)
+// const light1=new THREE.DirectionalLight('#ffffff',3.8)
+// light1.position.set(-3,-0.5,1.5)
+// light1.castShadow=false;
+// light1.receiveShadow=false;
+// scene.add(light1)
 
-const light2=new THREE.DirectionalLight('#ffffff',5)
-light.position.set(1,0,0)
-scene.add(light2);
+// const light2=new THREE.DirectionalLight('#ffffff',3.8)
+// light2.position.set(3,-0.5,1.5)
+// scene.add(light2);
+
+// const light3=new THREE.DirectionalLight('#ffffff',0.3)
+// light3.position.set(0,-0.1,1.5)
+// scene.add(light3);
+
+var aml = new THREE.AmbientLight(0xffffff, 20); // color, intensity
+scene.add(aml);
 
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true
 
 });
+
+const geosph = new THREE.SphereGeometry(0.5);
+const matsph = new THREE.MeshBasicMaterial({color: 0x00ff00});
+const sphere = new THREE.Mesh(geosph, matsph);
+sphere.position.set(0,-2,2);
+sphere.scale.set(0.5,0.5,0.5);
+// scene.add(sphere);
+
 // document.body.appendChild(renderer.domElement);
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-const clock = new THREE.Clock();
+
 
 const animate = () => {
     const elapsedTime = clock.getElapsedTime()
 
     renderer.render(scene, camera)
+    // console.log(scrollY)
     camera.position.y = -scrollY / sizes.height * objectsDistance;
     // mesh1.rotation.y=elapsedTime*0.5
     // mesh1.rotation.x = -3.14 * scrollY / sizes.height * 0.9
     var delta=clock.getDelta();
     if(mixer) mixer.update(delta*10);
+    if(mixer1) mixer1.update(delta*10);
     window.requestAnimationFrame(animate)
 };
 
