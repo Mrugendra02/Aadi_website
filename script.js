@@ -56,13 +56,13 @@ loader.load('./ev2.gltf',(gltf)=>{
     mixer1=new THREE.AnimationMixer(eva);
    
     gltf.animations.forEach((clip)=>{
-        // var action=mixer1.clipAction(clip);
+        var action=mixer1.clipAction(clip);
         // action.setDuration(action.getClip().duration/2);
-        // action.play();
+        action.play();
         console.log(clip.name)
     })
 
-    mixer1.clipAction(gltf.animations[1]).play();
+    // mixer1.clipAction(gltf.animations[1]).play();
     // gltf.scene.children.forEach((child)=>{
     //     child.castShadow=false;
     //     child.receiveShadow=false;
