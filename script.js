@@ -49,18 +49,20 @@ let mixer;
 
 var eva;
 let mixer1;
-loader.load('./Eva.gltf',(gltf)=>{
+loader.load('./ev2.gltf',(gltf)=>{
     eva=gltf.scene;
-    eva.scale.set(20,20,20)
+    eva.scale.set(0.5,0.5,0.5)
     // eva.position.z=-3
     mixer1=new THREE.AnimationMixer(eva);
    
     gltf.animations.forEach((clip)=>{
-        var action=mixer1.clipAction(clip);
+        // var action=mixer1.clipAction(clip);
         // action.setDuration(action.getClip().duration/2);
-        action.play();
+        // action.play();
         console.log(clip.name)
     })
+
+    mixer1.clipAction(gltf.animations[1]).play();
     // gltf.scene.children.forEach((child)=>{
     //     child.castShadow=false;
     //     child.receiveShadow=false;
@@ -80,6 +82,7 @@ loader.load('./Eva.gltf',(gltf)=>{
         var elapsedTime=clock.getElapsedTime();
         var delta=clock.getDelta();
         eva.position.y=Math.sin(elapsedTime)*0.1;
+        eva.position.y=-scrollY/sizes.height*objectsDistance;
         window.requestAnimationFrame(tic)
     }
     tic()
@@ -122,19 +125,19 @@ const light = new THREE.DirectionalLight('#ffffff', 1)
 light.position.set(0, 1, 0)
 scene.add(light)
 
-const light1=new THREE.DirectionalLight('#ffffff',1.5)
-light1.position.set(-3,-0.5,1.5)
+const light1=new THREE.PointLight('#ffffff',5,100)
+light1.position.set(-12,-2,5)
 light1.castShadow=false;
 light1.receiveShadow=false;
 scene.add(light1)
 
-const light2=new THREE.DirectionalLight('#ffffff',1.5)
-light2.position.set(3,-0.5,1.5)
+const light2=new THREE.PointLight('#ffffff',5,100)
+light2.position.set(12,-2,5)
 scene.add(light2);
 
 const light3=new THREE.DirectionalLight('#ffffff',0.3)
-light3.position.set(0,-0.1,1.5)
-scene.add(light3);   
+light3.position.set(0,0,-5)
+scene.add(light3); 
 
 var aml = new THREE.AmbientLight('#ffffff', 20); // color, intensity
 // scene.add(aml);
@@ -165,6 +168,8 @@ const animate = () => {
     renderer.render(scene, camera)
     // console.log(scrollY)
     camera.position.y = -scrollY / sizes.height * objectsDistance;
+    light1.position.y=-scrollY / sizes.height * objectsDistance-2;
+    light2.position.y= -scrollY / sizes.height * objectsDistance-2;
     // mesh1.rotation.y=elapsedTime*0.5
     // mesh1.rotation.x = -3.14 * scrollY / sizes.height * 0.9
     var delta=clock.getDelta();
