@@ -66,6 +66,16 @@ loader.load('./Eva.gltf',(gltf)=>{
     //     child.receiveShadow=false;
     //     // console.log(child)
     // })
+    // const mateva = new THREE.MeshBasicMaterial({color:'red'});
+    // gltf.scene.children.forEach((child)=>{
+       
+    //     child.castShadow=true;
+    //     // console.log(child.castShadow)
+    //     child.receiveShadow=true;
+    //     child.material=mateva;
+    //     console.log(child.material)
+
+    // })
     function tic(){
         var elapsedTime=clock.getElapsedTime();
         var delta=clock.getDelta();
@@ -108,26 +118,26 @@ window.addEventListener('scroll', () => {
     // console.log(scrollY)
 })
 
-// const light = new THREE.DirectionalLight('#ffffff', 3)
-// light.position.set(0, 1, 0)
-// scene.add(light)
+const light = new THREE.DirectionalLight('#ffffff', 1)
+light.position.set(0, 1, 0)
+scene.add(light)
 
-// const light1=new THREE.DirectionalLight('#ffffff',3.8)
-// light1.position.set(-3,-0.5,1.5)
-// light1.castShadow=false;
-// light1.receiveShadow=false;
-// scene.add(light1)
+const light1=new THREE.DirectionalLight('#ffffff',1.5)
+light1.position.set(-3,-0.5,1.5)
+light1.castShadow=false;
+light1.receiveShadow=false;
+scene.add(light1)
 
-// const light2=new THREE.DirectionalLight('#ffffff',3.8)
-// light2.position.set(3,-0.5,1.5)
-// scene.add(light2);
+const light2=new THREE.DirectionalLight('#ffffff',1.5)
+light2.position.set(3,-0.5,1.5)
+scene.add(light2);
 
-// const light3=new THREE.DirectionalLight('#ffffff',0.3)
-// light3.position.set(0,-0.1,1.5)
-// scene.add(light3);
+const light3=new THREE.DirectionalLight('#ffffff',0.3)
+light3.position.set(0,-0.1,1.5)
+scene.add(light3);   
 
-var aml = new THREE.AmbientLight(0xffffff, 20); // color, intensity
-scene.add(aml);
+var aml = new THREE.AmbientLight('#ffffff', 20); // color, intensity
+// scene.add(aml);
 
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
