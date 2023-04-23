@@ -49,7 +49,7 @@ let mixer;
 
 var eva;
 let mixer1;
-loader.load('./ev2.gltf',(gltf)=>{
+loader.load('./evaaa.gltf',(gltf)=>{
     eva=gltf.scene;
     eva.scale.set(0.5,0.5,0.5)
     // eva.position.z=-3
