@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.webgl{
+    
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+
+/* .section{
+    display:flex;
+    align-items:center;
+    height:100vh;
+    position:relative;
+    font-size:7vmin;
+    color:white;
+} */
+
+html{
+    background:#23153c;
+}
