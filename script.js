@@ -83,11 +83,24 @@ loader.load('./evaaa.gltf',(gltf)=>{
         var delta=clock.getDelta();
         eva.position.y=Math.sin(elapsedTime)*0.1;
         eva.position.y=-scrollY/sizes.height*objectsDistance;
+        // console.log(document.body.scrollHeight);
+        if(scrollY>=0 && scrollY<=2*(sizes.height)){
+            eva.position.x=-2*(scrollY/document.body.scrollHeight);
+            eva.rotation.y=1.1*(scrollY/document.body.scrollHeight);
+            // console.log("got there");
+        }
+        else{
+            eva.position.x=0;
+            eva.rotation.y=0
+
+        }
+        // eva.position.x=-scrollY/sizes.height*objectsDistance/5;
+        // console.log(scrollY);
         window.requestAnimationFrame(tic)
     }
     tic()
     
-    // mixer1.clipAction(gltf.animations[0]).play(); 
+    // mixer1.clipAction(gltf.animations[0]).play();    
     scene.add(gltf.scene)
 
 })
