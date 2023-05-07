@@ -84,8 +84,8 @@ loader.load('./evaaa.gltf',(gltf)=>{
         eva.position.y=Math.sin(elapsedTime)*0.1;
         eva.position.y=-scrollY/sizes.height*objectsDistance;
         // console.log(document.body.scrollHeight);
-        if(scrollY>=0 && scrollY<=2*(sizes.height)){
-            eva.position.x=-2*(scrollY/document.body.scrollHeight);
+        if(scrollY>=0 && scrollY<=1*(sizes.height)+100){
+            eva.position.x=-4*(scrollY/document.body.scrollHeight);
             eva.rotation.y=1.1*(scrollY/document.body.scrollHeight);
             // console.log("got there");
         }
