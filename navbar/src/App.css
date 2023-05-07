@@ -1,0 +1,266 @@
+@import url(//db.onlinewebfonts.com/c/605c1c612570275f24508913462da771?family=Radikal);
+
+*{
+  padding : 0;
+  margin : 0;
+  box-sizing : border-box;
+  list-style: none;
+  scroll-behavior: smooth;
+  font-weight : 700;
+  color : white;
+  font-family: RadikalW03,sans-serif;
+ 
+}
+.active {
+  color : rgb(252, 8, 48);
+  font-size: 20px;
+}
+.navbar {
+  display : flex;
+  padding : 20px;
+  align-items: center;
+  justify-content: space-between;
+  position : fixed ;
+  width : 100%;
+  top : 0;
+  color : rgba(255, 255, 255, 0.801);
+
+}
+.menue ul li {
+  cursor : pointer;
+}
+.menue li {
+  padding : 0 20px;
+  font-size : 20px;
+
+  
+}
+.abc{
+  display : flex;
+  flex-direction: row;
+}
+.button button{
+  padding : 10px 20px;
+  border : none;
+  border-radius : 20px;
+  background-color: rgb(255, 0, 34);
+}
+.festival,.main ,.location,.menu,.program,.trailer {
+  height : 100vh;
+  display : flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+}
+.location,.menu,.program{
+  width : 50%;
+
+  overflow : hidden;
+
+  text-align: left;
+  padding : 15px;
+  line-height: 28px;
+  margin :  0 50px;
+}
+.location  h1 ,.program h1{
+  text-align: left;
+  width : 100%;
+  padding : 15px 0; 
+
+
+}
+.program {
+  float: right;
+  margin-right : 90px;
+}
+.program p{
+  width : 100%;
+  text-align: left;
+}
+
+
+.festival button ,.location button ,.menu button ,.program  button {
+padding : 20px ;
+background-color : black;
+border-radius : 24px;
+border : none;
+font-size : 15px;
+margin-top : 20px;
+
+
+}
+.buttonone ,.buttontwo {
+  display : none;
+  font-size : 40px;
+  background-color: transparent;
+  border  : none;
+}
+.main{
+  display : flex;
+  justify-content: center;
+  flex-direction : column;
+  text-align: center;
+  align-items: center;
+ 
+  
+}
+.main div{
+  text-align: center;
+  display : flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight : 900;
+  
+}
+.main div button h1 {
+  color : white;
+  background-color: black;
+  padding : 15px;
+  font-size : 30px;
+  font-weight : 700;
+  font-family: RadikalW03,sans-serif;
+    font-size: 3.375rem;
+    font-weight: 900;
+    line-height: 3.125rem;
+    text-transform: uppercase;
+
+}
+.main div {
+  margin-top: 100px;
+}
+.main div button {
+  background-color: transparent;
+  display : flex;
+  align-items: center;
+  flex-direction: column;
+  border :
+   none;
+ position : fixed;
+ bottom : 60px;
+
+}
+
+.main div button h3 {
+  width : 80%;
+  background-color: pink;
+  position : relative;
+  top : -3px;
+  color : white;
+  
+
+
+}
+
+.buttons {
+
+
+  width : 100%;
+
+}
+@media screen and (max-width : 899px) {
+
+  .location,.program{
+    width : 80%;
+    
+
+  }
+
+}
+.trailer {
+  width : 100%;
+  
+  
+}
+.trailer div{
+
+  height: 45%;
+  width : 70%;
+  margin : auto;
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  overflow : hidden;
+  border-radius : 20px;
+ 
+
+  
+}
+.trailer div video {
+  border-radius : 20px;
+
+}
+
+@media screen and (max-width: 600px) {
+  
+
+ 
+  .menue .button{
+    z-index : 3234;
+  }
+  .abc {
+    position : absolute;
+   
+   left : -1200px;
+   transition : 0.5s ease;
+ 
+  
+   flex-direction: column;
+  }
+.abcd{
+  display : block;
+ position : absolute;
+ top : 0;
+ background-color: rgb(60, 8, 250);
+ width : 100%;
+ height : 100vh;
+ left : 0;
+
+
+ 
+}
+
+
+ .menue .buttontwo {
+  display : block;
+ 
+  margin : 20px;
+  
+ }
+ .menue .buttontwo p {
+  font-size : 20px;
+  margin-top : 100px;
+ }
+
+.menue .buttonone{
+  display : block;
+  
+}
+.button {
+  z-index : 2324678903;
+}
+.main h1{
+  font-size : 20px;
+  
+}
+.main button{
+  position : fixed;
+}
+.main div button h1 {
+ width : 150px;
+  font-size : 30px;
+ 
+}
+.main div {
+  margin-top: 100px;
+}
+
+
+.main div button h3 {
+font-size : 11px;
+
+
+}
+
+
+
+}
